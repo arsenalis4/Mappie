@@ -14,7 +14,26 @@
         
     </head>
     <body>
-        <div id="map"></div>
+        <div id="map">
+        </div>
+
+        <div id="select_modal">
+            <div id="select_flex">
+                <div>혼잡도를 선택해주세요!</div><br>
+                <div id="red_box" class="option">
+                    혼잡
+                </div>
+                <div id="yellow_box" class="option">
+                    보통
+                </div>
+                <div id="green_box" class="option">
+                    여유
+                </div>
+            </div>
+            <div id="quit">
+                x
+            </div>
+        </div>    
 
         <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj7C7InW8V_0IgDhCuXkNMlc4ud1-HU2U&callback=initMap&v=weekly"

@@ -1,5 +1,6 @@
 let map, infoWindow;
-var random_num = 0;
+var rectangle_list = [];
+var click_list = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -8,32 +9,54 @@ function initMap() {
     });
     
     
-    for(var i = 37.4 ; i < 37.7; i = i + 0.003){
-        for(var j = 126.7; j < 127.3; j = j + 0.003){
+    for(var i = 37.4 ; i < 37.7; i = i + 0.002){
+        for(var j = 126.7; j < 127.3; j = j + 0.002){
             var rectangle = new google.maps.Rectangle({
             strokeColor: "white",
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: "yellow",
+            fillColor: "white",
             fillOpacity: 0.35,
             map,
             bounds: new google.maps.LatLngBounds(
                 new google.maps.LatLng(i, j),
-                new google.maps.LatLng(i+0.003, j+0.003)
+                new google.maps.LatLng(i+0.002, j+0.002)
             )
         });
-        console.log(rectangle)  
+        rectangle_list.push(rectangle)
     }}
 
-    rectangle.addListener('click', function(e) {
-        console.log(1);
-      });
+    
+    rectangle_list.forEach((item) => item.addListener('click', () => 
+        {
+            $('#select_modal').css('display', 'block');
+
+            click_list.push(item);
+            window.click_list_length_substract_one = click_list.length - 1
+        }
+    ));
+
+    $(document).on('click', '#green_box' ,function(e) {
+        click_list[click_list_length_substract_one].setOptions( { fillColor: 'green'});
+        //fillColor: 'green' -> fillColor: 'rgb(0,255,255)'
+        $('#select_modal').css('display', 'none');
+    });
+
+    $(document).on('click', '#yellow_box' ,function(e) {
+        click_list[click_list_length_substract_one].setOptions( { fillColor: 'yellow' });
+        $('#select_modal').css('display', 'none');
+    });
+
+    $(document).on('click', '#red_box' ,function(e) {
+        click_list[click_list_length_substract_one].setOptions( { fillColor: 'red' });
+        $('#select_modal').css('display', 'none');
+    });
 
     infoWindow = new google.maps.InfoWindow();
 
     const locationButton = document.createElement("button");
 
-    locationButton.textContent = "Pan to Current Location";
+    locationButton.textContent = "현재 위치로";
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
     locationButton.addEventListener("click", () => {
@@ -73,3 +96,7 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+$(document).on('click', '#quit' ,function(e) {
+    $('#select_modal').css('display', 'none');
+})
