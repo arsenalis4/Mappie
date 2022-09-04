@@ -18,10 +18,10 @@ body {
 
 #select_modal{
     height: 40vh;
-    width: 20%;
+    width: 40%;
     top: 20vh;
     position: absolute;
-    left: 40%;
+    left: 30%;
     background-color: skyblue;
     opacity: 0.8;
     display: none;
