@@ -3,28 +3,110 @@
  * that contains the map. 
  */
 #map {
+    top: 0%;
     height: 80%;
 }
   
   /* 
    * Optional: Makes the sample page fill the window. 
    */
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans KR';
 }
 
-#select_modal{
-    height: 40vh;
-    width: 40%;
-    top: 20vh;
+button{
+    font-family: 'Noto Sans KR';
+}
+
+#header{
+    height: 10%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header_flex{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;   
+    width: 60%;
+}
+
+#header_flex > div{
+    cursor: pointer;
+}
+
+#usage_flex{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+.long_sentence{
+    text-align: center;
+}
+
+.contact_text{
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#contact_flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+#contact_input{
+    height: 5rem;
+    width: 10rem;
+}
+
+@media (min-width: 640px) {
+    #header_flex{
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        align-items: center;   
+        width: 60%;
+    }
+
+    #contact_input{
+        height: 10rem;
+        width: 20rem; 
+    }
+    
+}
+
+.modal{
+    height: 60%;
+    width: 60%;
+    top: 20%;
     position: absolute;
-    left: 30%;
-    background-color: skyblue;
-    opacity: 0.8;
+    left: 20%;
+    background-color: white;
+    opacity: 0.9;
     display: none;
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 #select_flex{
@@ -32,16 +114,50 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 100%;
+    gap: 0.25rem;
+}
+
+.option_q, .option{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 180%;
+}
+
+.option_q{
+    font-size: 1.25rem;
 }
 
 .option{
     cursor: pointer;
 }
 
-#quit{
+#red_box{
+    color: red;
+    border: 0.1rem solid red;
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
+}
+
+#yellow_box{
+    color: rgb(255, 200, 0);
+    border: 0.1rem solid rgb(255, 200, 0);
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
+}
+
+#green_box{
+    color: green;
+    border: 0.1rem solid green;
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
+}
+
+.quit{
     position: absolute;
-    top:0;
-    right: 1rem;
+    top: -1.8rem;
+    right: -1.8rem;
+    scale: 0.8;
     cursor: pointer;
 }

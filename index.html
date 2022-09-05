@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
         <link href="static/css/index.css" rel="stylesheet" />
 
         <title>맵파이</title>
@@ -14,26 +15,58 @@
         
     </head>
     <body>
+        <div id="header">
+            <div>맵파이</div>
+            <div id="header_flex">
+                <div class="usage">Usage</div>
+                <div class="milestone">Milestone</div>
+                <div class="contact">Contact</div>
+            </div>
+        </div>
+
         <div id="map">
         </div>
 
-        <div id="select_modal">
+        <div id="select_modal" class="modal">
             <div id="select_flex">
-                <div>혼잡도를 선택해주세요!</div><br>
-                <div id="red_box" class="option">
-                    혼잡
+                <div class="option_q">혼잡도를 선택해주세요!</div><br>
+                <div id="green_box" class="option">
+                    여유
                 </div>
                 <div id="yellow_box" class="option">
                     보통
                 </div>
-                <div id="green_box" class="option">
-                    여유
+                <div id="red_box" class="option">
+                    혼잡
                 </div>
             </div>
-            <div id="quit">
-                x
+            <div class="quit">
+                <img src="static/img/Group 19.svg" alt="quit" />
             </div>
-        </div>    
+        </div> 
+        
+        <div id="usage_modal" class="modal">
+            <div id="usage_flex">
+                <div>1. 타일을 클릭하세요.</div>
+                <div class="long_sentence">2. 여유/보통/혼잡 중 하나를<br>클릭해주세요.</div>
+                <div class="long_sentence">3. 지도를 확인해보세요.<br>실시간으로 타일 내에 사람들이 얼마나 붐비는 지 나타냅니다!</div>
+                <div class="long_sentence"><br>* 여유로울수록 초록색, <br>혼잡할수록 빨강색, <br>보통이 많을수록 노랑색이 진해짐.</div>
+            </div>
+            <div class="quit">
+                <img src="static/img/Group 19.svg" alt="quit" />
+            </div>
+        </div>
+        
+        <div id="contact_modal" class="modal">
+            <div id="contact_flex">
+                <div class="contact_text">Contact Us</div>
+                <div><input id="contact_input" type="text" name="Contact us" placeholder="Contact us"></div>
+                <div><input type="button" class="button" value="submit"/></div>
+            </div>
+            <div class="quit">
+                <img src="static/img/Group 19.svg" alt="quit" />
+            </div>
+        </div>
 
         <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj7C7InW8V_0IgDhCuXkNMlc4ud1-HU2U&callback=initMap&v=weekly"
